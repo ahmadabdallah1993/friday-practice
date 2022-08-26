@@ -90,3 +90,14 @@ npx create-react-app my-app
 cd my-app
 npm start
 ctrl ^c
+
+
+# bootStrap react
+
+npm install react-bootstrap bootstrap
+
+import them at the js file inside chiled
+import Button from 'react-bootstrap/Button';
+
+at appjs or indexjs
+import 'bootstrap/dist/css/bootstrap.min.css';
