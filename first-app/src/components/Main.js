@@ -8,9 +8,18 @@ import Row from 'react-bootstrap/Row';
 
 class Main extends React.Component{
 
-    
-
+    constructor(props){
+        super(props);
+        this.state = {
+            total : 100
+        }
+    }
    
+    DecrementTotal = () => {
+        this.setState({
+            total : this.state.total -1
+        })
+    }
 
     render(){
         return(
@@ -23,8 +32,9 @@ class Main extends React.Component{
 
 
             <div>
+                <h2>Total number of Food: {this.state.total} </h2>
                 <Row xs={1} md={3} className="g-4">
-                {Data.map( (item, i) => {
+                {/* {Data.map( (item, i) => {
                     
                     return <HornedBeast
                     key= {item._id}
@@ -33,7 +43,17 @@ class Main extends React.Component{
                     description={item.description}
                      />
                     
-                })}
+                })} */}
+                {Data.map( (item, i) => 
+                    <HornedBeast
+                    key= {item._id}
+                    title= {item.title}
+                    image_url={item.image_url}
+                    description={item.description}
+                    sendFromMain={this.DecrementTotal}
+                     />
+                )}
+
                  </Row>
             </div>
         )

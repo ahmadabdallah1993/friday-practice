@@ -9,30 +9,27 @@ import Col from 'react-bootstrap/Col';
 
 class HornedBeast extends React.Component{
 
-
-    constructor(props){
-        super(props);
-        this.state = {
-            numPets : 0,
-            numFood : 0
-        }
+   constructor(props){
+    super(props);
+    this.state = {
+        animal : 0,
+        food : 0
     }
+   }
 
 
-    increment = () => {
-        // alert("hiiiiiiiiiiiiiiiii");
-        this.setState({
-            numPets : this.state.numPets +1
-        })
-    }
+   increment = () => {
+    this.setState({
+        animal : this.state.animal +1
+    })
+   }
 
-    needFood = () => {
-        this.setState({
-            numFood: this.state.numFood +1
-        })
-
-    }
-
+   iNeedFood = () => {
+    this.setState({
+        food: this.state.food +1
+    })
+    this.props.sendFromMain();
+   }
 
 
 
@@ -74,12 +71,13 @@ class HornedBeast extends React.Component{
               {this.props.description}
               </Card.Text>
               <Card.Text>
-              number of pets: {this.state.numPets}
+                Number of animal: {this.state.animal}
               </Card.Text>
               <Card.Text>
-              i neet food: {this.state.numFood}
+                i need food: {this.state.food}
               </Card.Text>
-              <Button variant="primary" onClick={this.needFood}>Go somewhere</Button>
+              
+              <Button variant="primary" onClick={this.iNeedFood}>Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>
