@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main'
 import Data from './components/Data.json';
-
+import SelectedBeast from './components/SelectedBeast';
 
 class App extends React.Component{
 
@@ -11,7 +11,9 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      food :  100
+      food :  100,
+      show : false,
+      cell: {}
     }
   }
 
@@ -22,9 +24,19 @@ class App extends React.Component{
     })
   }
 
+  onShow = (title) => {
+    const c = Data.find( item => item.title === title)
+    this.setState({
+      show: true,
+      cell: c
+    })
+  }
 
-
-
+  onClose = () => {
+    this.setState({
+      show: false
+    })
+  }
 
 
   render(){
@@ -33,7 +45,8 @@ class App extends React.Component{
         <Header />
         <h3>Total number of food: {this.state.food} </h3>
         
-        <Main sendData={Data} decrementTotal={this.decTotal} />
+        <Main sendData={Data} decrementTotal={this.decTotal} send={this.onShow} />
+        <SelectedBeast sh={this.state.show} cl={this.onClose} q={this.state.cell} />
         <Footer />
       </div>
     )

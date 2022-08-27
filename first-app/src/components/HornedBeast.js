@@ -10,7 +10,7 @@ class HornedBeast extends React.Component{
         super(props);
         this.state ={
             animal: 0,
-            needFood : 0
+            needFood : 0,
         }
     }
 
@@ -26,8 +26,6 @@ class HornedBeast extends React.Component{
         })
         this.props.decrementTotal();
     }
-
-
 
     render(){
         return(
@@ -49,6 +47,10 @@ class HornedBeast extends React.Component{
                 Number of Food: {this.state.needFood}
               </Card.Text>
               <Button variant="primary" onClick={this.foodReq}>ask for food request</Button>
+              <Button variant="primary" onClick={() =>{this.props.send(this.props.title)}}>
+        Launch modal
+      </Button>
+             
             </Card.Body>
           </Card>
         </Col>
