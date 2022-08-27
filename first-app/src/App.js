@@ -39,6 +39,8 @@ class App extends React.Component{
     })
   }
 
+  
+
   dataFiltering = (numHorn) => {
     let x;
     if(numHorn === 0){
