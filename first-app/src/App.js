@@ -1,38 +1,42 @@
 import React from 'react';
-// import Buttons from './components/buttons';
-// import Board from './components/Board';
-
 import Header from './components/Header';
-import Main from './components/Main'
 import Footer from './components/Footer';
+import Main from './components/Main'
+import Data from './components/Data.json';
 
 
-class App extends React.Component {
+class App extends React.Component{
 
-  render() {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      food :  100
+    }
+  }
+
+
+  decTotal = () => {
+    this.setState({
+      food: this.state.food -1
+    })
+  }
+
+
+
+
+
+
+  render(){
     return(
-
       <div>
         <Header />
-        <Main />
+        <h3>Total number of food: {this.state.food} </h3>
+        
+        <Main sendData={Data} decrementTotal={this.decTotal} />
         <Footer />
-
       </div>
-
-
-
-
-      // <div>
-      // <h1>Hello</h1>
-      // <p>hello to the website</p>
-      // <Buttons />
-      // <Buttons />
-      // <Buttons />
-      // <Board />
-      
-      // </div>
     )
   }
 }
-
 export default App;
