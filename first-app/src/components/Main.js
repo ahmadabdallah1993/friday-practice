@@ -7,9 +7,9 @@ class Main extends React.Component{
     render(){
         return(
             <div>
-                <Row xs={1} md={4} className="g-4">
+                <Row xs={1} md={5} className="g-4">
 
-                {this.props.sendData.map( (item) => {
+                {this.props.sendData.map( item => {
                     return <HornedBeast 
                     key={item._id}
                     imgUrl={item.image_url}
@@ -18,7 +18,6 @@ class Main extends React.Component{
                     horns={item.horns}
                     decrementTotal={this.props.decrementTotal}
                     send={this.props.send}
-
                     />
                 })}
                 </Row>
